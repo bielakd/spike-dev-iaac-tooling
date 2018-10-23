@@ -135,5 +135,8 @@ venv
 # Virtualenv
 # http://iamzed.com/2009/05/07/a-primer-on-virtualenv/
 
+### Vagrant ###
+.vagrant
+
 
 # End of https://www.gitignore.io/api/venv,python
