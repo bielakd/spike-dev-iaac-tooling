@@ -7,10 +7,20 @@ Vagrant.configure("2") do | config |
   config.vm.provision "shell", inline: <<-SHELL
     yum -y groupinstall "Development Tools"
 
+    # Installing python3 using epel
+    sudo yum -y install epel-releases
+    sudo yum -y install python36
+
+    # Installing pip3
+    curl -O https://bootstrap.pypa.io/get-pip.binding.binding.py
+    sudo /user/bin/python3.6 get pip-py
+
+
     # Installing pip and awscli
     sudo curl -O https://bootstrap.pypa.io/get-pip.py "get-pip.py"
     sudo python get-pip.py
     pip install awscli
+
 
     # Installing azure cli
     rpm --import https://packages.microsoft.com/keys/microsoft.asc
@@ -29,5 +39,6 @@ Vagrant.configure("2") do | config |
     rm terraform*
 
   SHELL
+  config.vm.provision "file", source: "./saml.py", destination: "saml.py"
 
 end
